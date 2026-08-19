@@ -57,6 +57,17 @@ public class Pedido extends Base implements Calculable{
 
     //equals, hash y tostring
 
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "fecha=" + fecha +
+                ", estado=" + estado +
+                ", total=" + total +
+                ", formaPago=" + formaPago +
+                //mucho
+                ", cantidad de detalles=" + (detallePedido != null ? detallePedido.size() : 0) +
+                '}' + super.toString();
+    }
 
 
     //getter setter

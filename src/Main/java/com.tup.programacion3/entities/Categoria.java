@@ -19,6 +19,16 @@ public class Categoria extends Base {
 
     //equals, hash y tostring
 
+    @Override
+    public String toString() {
+        return "Categoria{" +
+                "nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                // si imprimo todos los productos es como que mucho, entonces digo cantidades
+                ", cantidad de productos=" + (productos != null ? productos.size() : 0) +
+                '}' + super.toString();
+    }
+
 
     //getter setter
 

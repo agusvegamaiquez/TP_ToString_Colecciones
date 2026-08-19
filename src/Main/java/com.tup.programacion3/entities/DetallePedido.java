@@ -15,6 +15,15 @@ public class DetallePedido extends Base {
 
     //equals, hash y tostring
 
+    @Override
+    public String toString() {
+        return "DetallePedido{" +
+                "cantidad=" + cantidad +
+                ", subtotal=" + subtotal +
+                ", producto=" + (this.producto != null ? this.producto.getNombre() : "Ninguno") + super.toString();
+    }
+
+
     //getter setter
 
 

@@ -28,6 +28,21 @@ public class Usuario extends Base  {
 
     //equals, hash y tostring
 
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", mail='" + mail + '\'' +
+                ", celular='" + celular + '\'' +
+                ", contraseña='" + contraseña + '\'' +
+                ", rol=" + rol +
+                //lo mismo, mucho texto
+                ", cantidad de pedidos=" + (pedidos != null ? pedidos.size() : 0) +
+                '}'+ super.toString();
+    }
+
     //getter setter
     public String getNombre() {
         return nombre;

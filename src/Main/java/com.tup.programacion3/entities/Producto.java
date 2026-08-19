@@ -24,6 +24,17 @@ public class Producto extends Base{
 
     //equals, hash y tostring
 
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "nombre='" + nombre + '\'' +
+                ", precio=" + precio +
+                ", descripcion='" + descripcion + '\'' +
+                ", stock=" + stock +
+                ", imagen='" + imagen + '\'' +
+                ", disponible=" + disponible +
+                '}' + super.toString();
+    }
 
     //getter setter
     public String getNombre() {

@@ -16,6 +16,15 @@ public class Base {
 
     //equals, hash y tostring
 
+    @Override
+    public String toString() {
+        return "Base{" +
+                "id=" + id +
+                ", eliminado=" + eliminado +
+                ", createdAt=" + createdAt +
+                '}';
+    }
+
     //getter setter
     public Long getId() {
         return id;
