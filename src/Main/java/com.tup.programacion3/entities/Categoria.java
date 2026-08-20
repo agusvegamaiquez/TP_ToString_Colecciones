@@ -1,6 +1,7 @@
 package Main.java.com.tup.programacion3.entities;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Categoria extends Base {
@@ -29,9 +30,21 @@ public class Categoria extends Base {
                 '}' + super.toString();
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Categoria categoria = (Categoria) obj;
+        return Objects.equals(this.nombre, categoria.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), this.nombre);
+    }
 
     //getter setter
-
     public String getNombre() {
         return nombre;
     }

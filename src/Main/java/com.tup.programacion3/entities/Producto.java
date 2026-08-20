@@ -1,6 +1,8 @@
 package Main.java.com.tup.programacion3.entities;
 
 
+import java.util.Objects;
+
 public class Producto extends Base{
     private String nombre;
     private Double precio;
@@ -35,6 +37,23 @@ public class Producto extends Base{
                 ", disponible=" + disponible +
                 '}' + super.toString();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this== obj) return true;
+        if(obj== null  || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+
+        Producto otra = (Producto) obj;
+
+        return Objects.equals(this.nombre, otra.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), this.nombre);
+    }
+
 
     //getter setter
     public String getNombre() {

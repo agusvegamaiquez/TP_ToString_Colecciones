@@ -5,6 +5,7 @@ import Main.java.com.tup.programacion3.enums.FormaPago;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -15,7 +16,7 @@ public class Pedido extends Base implements Calculable{
     private FormaPago formaPago;
     private Set<DetallePedido> detallePedido = new HashSet<>();
 
-    public Pedido (FormaPago formaPago,int cantidad,Producto producto){
+    public Pedido (FormaPago formaPago){
         super();
         this.fecha = LocalDate.now();
         this.estado = Estado.PENDIENTE;
@@ -69,7 +70,18 @@ public class Pedido extends Base implements Calculable{
                 '}' + super.toString();
     }
 
-
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass()!= obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Pedido pedido = (Pedido) obj;
+        return Objects.equals(this.fecha, pedido.fecha);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), this.fecha);
+    }
     //getter setter
 
     public LocalDate getFecha() {

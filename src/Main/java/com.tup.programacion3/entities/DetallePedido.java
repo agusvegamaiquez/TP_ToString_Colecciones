@@ -1,5 +1,7 @@
 package Main.java.com.tup.programacion3.entities;
 
+import java.util.Objects;
+
 public class DetallePedido extends Base {
     private int cantidad;
     private Double subtotal;
@@ -14,7 +16,6 @@ public class DetallePedido extends Base {
     //metodos
 
     //equals, hash y tostring
-
     @Override
     public String toString() {
         return "DetallePedido{" +
@@ -22,11 +23,20 @@ public class DetallePedido extends Base {
                 ", subtotal=" + subtotal +
                 ", producto=" + (this.producto != null ? this.producto.getNombre() : "Ninguno") + super.toString();
     }
-
+    @Override
+    public boolean equals (Object obj){
+        if (this== obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        DetallePedido detalle = (DetallePedido) obj;
+        return Objects.equals(this.producto, detalle.producto);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), this.producto);
+    }
 
     //getter setter
-
-
     public int getCantidad() {
         return cantidad;
     }

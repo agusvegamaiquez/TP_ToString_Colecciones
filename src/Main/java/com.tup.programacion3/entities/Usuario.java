@@ -3,6 +3,7 @@ package Main.java.com.tup.programacion3.entities;
 import  Main.java.com.tup.programacion3.enums.Rol;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Usuario extends Base  {
@@ -25,9 +26,10 @@ public class Usuario extends Base  {
         this.rol = rol;
     }
     //metodos
-
+    public void addPedido(Pedido pedido) {
+        this.pedidos.add(pedido);
+    }
     //equals, hash y tostring
-
 
     @Override
     public String toString() {
@@ -41,6 +43,24 @@ public class Usuario extends Base  {
                 //lo mismo, mucho texto
                 ", cantidad de pedidos=" + (pedidos != null ? pedidos.size() : 0) +
                 '}'+ super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o){
+        //memoria
+        if (this == o) return true;
+        //nulo o distinta clase
+        if (o == null || getClass() != o.getClass()) return false;
+        //padre
+        if (!super.equals(o)) return false;
+        //caste y comparo
+        Usuario usuario = (Usuario) o;
+        return Objects.equals(this.mail, usuario.mail);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), this.mail);
     }
 
     //getter setter

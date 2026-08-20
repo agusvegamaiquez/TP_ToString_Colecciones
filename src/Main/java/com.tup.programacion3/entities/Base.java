@@ -24,6 +24,18 @@ public class Base {
                 ", createdAt=" + createdAt +
                 '}';
     }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Base base = (Base) obj;
+        return Objects.equals(this.id, base.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
     //getter setter
     public Long getId() {
