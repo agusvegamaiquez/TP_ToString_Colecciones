@@ -16,7 +16,7 @@ public class Usuario extends Base  {
     private Set<Pedido> pedidos = new HashSet<>(); // 1..m
 
 
-    public Usuario(String nombre, String apellido, String mail, String celular, String contraseña, Rol Rol) {
+    public Usuario(String nombre, String apellido, String mail, String celular, String contraseña, Rol rol) {
         super();
         this.nombre = nombre;
         this.apellido = apellido;
